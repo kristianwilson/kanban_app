@@ -1,64 +1,45 @@
 import React from 'react';
+import {DragSource, DropTarget} from 'react-dnd';
+import ItemTypes from '../constants/itemTypes';
 
-export default class Note extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            editing: false
+const noteSource = {
+    beginDrag(props) {
+        return {
+            id: props.id
         };
     }
+};
+
+const noteTarget = {
+    hover(targetProps, monitor) {
+        const targetId = targetProps.id;
+        const sourceProps = monitor.getItem();
+        const sourceId = sourceProps.id;
+
+        if(sourceId !== targetId) {
+            targetProps.onMove({sourceId, targetId});
+        }
+    }
+};
+
+@DragSource(ItemTypes.NOTE, noteSource, (connect, monitor) => ({
+    connectDragSource: connect.dragSource(),
+    isDragging : monitor.isDragging() // map isDragging() state to isDragging prop
+}))
+@DropTarget(ItemTypes.NOTE, noteTarget, (connect) => ({
+    connectDropTarget: connect.dropTarget()
+}))
+export default class Note extends React.Component {
     render() {
-        if(this.state.editing) {
-            return this.renderEdit();
-        }
+        const {connectDragSource, connectDropTarget, isDragging,
+            onMove, id, editing, ...props } = this.props;
+        // Pass through if we are editing
+        const dragSource = editing ? a => a : connectDragSource;
 
-        return this.renderNote();
-    }
-    renderEdit = () => {
-        return <input type="text"
-        ref={
-            (e) => e ? e.selectionStart = this.props.task.length : null
-        }
-        autoFocus={true}
-        defaultValue={this.props.task}
-        onBlur={this.finishedEdit}
-        onKeyPress={this.checkEnter} />;
-    }
-    renderNote = () => {
-        const onDelete = this.props.onDelete;
-
-        return (
-            <div onClick={this.edit}>
-                <span className="task">{this.props.task}</span>
-                {onDelete ? this.renderDelete() : null }
-            </div>
-        );
-    }
-    renderDelete = () => {
-        return <button 
-            className="delete-note"
-            onClick={this.props.onDelete}>x</button>
-    }
-    edit = () => {
-        this.setState({
-            editing: true
-        });
-    }
-    checkEnter = (e) => {
-        if(e.key === 'Enter') {
-            this.finishedEdit(e);
-        }
-    }
-    finishedEdit = (e) => {
-        const value = e.target.value;
-
-        if(this.props.onEdit) {
-            this.props.onEdit(value);
-
-            this.setState({
-                editing: false
-            });
-        }
+        return dragSource(connectDropTarget(
+            <li style={{
+                opacity: isDragging ? 0: 1
+            }}{...props}>{props.children}</li>
+        ));
     }
 }
