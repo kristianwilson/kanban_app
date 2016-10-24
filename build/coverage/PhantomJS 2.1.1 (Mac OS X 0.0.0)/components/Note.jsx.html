@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for components/Note.jsx</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">components/</a> Note.jsx
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">91.57% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>76/83</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">92.16% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>47/51</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">82.35% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>14/17</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">64.71% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>11/17</span>
+      </div>
+      <div class='fl pad1y'>
+        <span class="strong">5 statements, 17 branches</span>
+        <span class="quiet">Ignored</span>  &nbsp;&nbsp;&nbsp;&nbsp;
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
+import {DragSource, DropTarget} from 'react-dnd';
+import ItemTypes from '../constants/itemTypes';
+&nbsp;
+const noteSource = <span class="fstat-no" title="function not covered" >{</span>
+    beginDrag(props) {
+<span class="cstat-no" title="statement not covered" >        r</span>eturn {
+            id: props.id
+        };
+    }
+};
+&nbsp;
+const noteTarget = <span class="fstat-no" title="function not covered" >{</span>
+    hover(targetProps, monitor) {
+<span class="cstat-no" title="statement not covered" >        c</span>onst targetId = targetProps.id;
+<span class="cstat-no" title="statement not covered" >        c</span>onst sourceProps = monitor.getItem();
+<span class="cstat-no" title="statement not covered" >        c</span>onst sourceId = sourceProps.id;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if(sourceId !== targetId) {</span>
+<span class="cstat-no" title="statement not covered" >            t</span>argetProps.onMove({sourceId, targetId});
+        }
+    }
+};
+&nbsp;
+@DragSource(ItemTypes.NOTE, noteSource, (connect, monitor) =&gt; ({
+    connectDragSource: connect.dragSource(),
+    isDragging : monitor.isDragging() // map isDragging() state to isDragging prop
+}))
+@DropTarget(ItemTypes.NOTE, noteTarget, (connect) =&gt; ({
+    connectDropTarget: connect.dropTarget()
+}))
+export default class Note extends React.Component {
+    render() {
+        const {connectDragSource, connectDropTarget, isDragging,
+            onMove, id, editing, ...props } = this.props;
+        // Pass through if we are editing
+        const dragSource = e</span>diting ? <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >a</span></span> =&gt; a : connectDragSource;
+&nbsp;
+        return dragSource(connectDropTarget(
+            &lt;li style={{
+                opacity: i</span>sDragging ? <span class="branch-0 cbranch-no" title="branch not covered" >0: 1
+            }}{...props}&gt;{props.children}&lt;/li&gt;
+        ));
+    }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Oct 24 2016 22:15:18 GMT+0100 (BST)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>
