@@ -9,6 +9,9 @@
         "start": {
             "presets" : [
                 "react-hmre"
+            ],
+            "plugins" : [
+                "typecheck"
             ]
         }
     }
